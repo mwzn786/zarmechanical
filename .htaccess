@@ -1,0 +1,17 @@
+# Hostinger / LiteSpeed — static site routing
+# Upload this file to public_html (alongside index.html).
+
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Old WordPress pretty permalinks → static pages
+  RewriteRule ^about/?$ /about.html [R=301,L]
+  RewriteRule ^services/?$ /services.html [R=301,L]
+  RewriteRule ^projects/?$ /projects.html [R=301,L]
+  RewriteRule ^safety/?$ /safety.html [R=301,L]
+  RewriteRule ^contact/?$ /contact.html [R=301,L]
+  RewriteRule ^contacts/?$ /contact.html [R=301,L]
+</IfModule>
