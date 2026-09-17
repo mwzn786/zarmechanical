@@ -7,6 +7,10 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
+  # Always use www — the apex URL is stuck on a stale CDN copy of WordPress
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.zarmechanical.com/$1 [L,R=301]
+
   # Old WordPress pretty permalinks → static pages
   RewriteRule ^about/?$ /about.html [R=301,L]
   RewriteRule ^services/?$ /services.html [R=301,L]

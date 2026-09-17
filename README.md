@@ -1,6 +1,6 @@
 # ZAR Mechanical
 
-Static marketing site for [ZAR Mechanical Inc.](https://zarmechanical.com/), a Canadian-owned mechanical contractor in North York, Ontario.
+Static marketing site for [ZAR Mechanical Inc.](https://www.zarmechanical.com/), a Canadian-owned mechanical contractor in North York, Ontario.
 
 ## Pages
 
@@ -23,12 +23,12 @@ Then open `http://localhost:4173`.
 
 ## Hostinger (zarmechanical.com)
 
-The files live in Hostinger `public_html`. The origin already serves this static site, but Hostinger CDN (`hcdn`) can keep a cached copy of the old WordPress homepage at `https://zarmechanical.com/`.
+The files live in Hostinger `public_html`. Hostinger CDN can still serve a cached WordPress homepage at the bare domain `https://zarmechanical.com/`. The new site loads correctly at `https://www.zarmechanical.com/`.
 
-After every upload:
+`.htaccess` forces all non-www requests to `https://www.zarmechanical.com/…` and maps old WordPress paths like `/about/` to `/about.html`.
 
-1. In hPanel, purge **CDN / Cache** for the domain (Purge All).
-2. Confirm `https://zarmechanical.com/` (no `www`, no `index.html`) shows the new homepage, not the old TheGem/WordPress theme.
-3. Keep this repo’s `.htaccess` in `public_html` so old WordPress paths like `/about/` redirect to `/about.html` instead of 404.
+After uploading `.htaccess`:
 
-Do not leave WordPress `index.php` as the directory index, or `/` will prefer PHP over `index.html` again.
+1. In hPanel, purge **CDN / Cache** for the domain (Purge All). Until that cache drops, `https://zarmechanical.com/` may still show the old homepage instead of the www redirect.
+2. Confirm `https://zarmechanical.com/` redirects to `https://www.zarmechanical.com/`.
+3. Bookmark and share the www URL.
